@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="cs" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <script src="https://kit.fontawesome.com/5bf75b0391.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="registrace">
+    <h2>Registration Completed:</h2>
+    <div class="formular">
+
+        <table class="sport">
+            <tbody>
+            <tr>
+                <td><i class="fas fa-check"></i> Participant's name:</td>
+                <td th:text="${regForm.fullName}"></td>
+            </tr>
+            <tr>
+                <td><i class="fas fa-check"></i> Participant's Birth Date:</td>
+                <td th:text="${#temporals.format(regForm.dateOfBirth,'d. MMMM yyyy')}"></td>
+            </tr>
+            <tr>
+                <td><i class="fas fa-check"></i> Participant's gender:</td>
+                <td th:if="${regForm.gender}== ${T(cz.czechitas.java2webapps.ukol5.controller.Gender).GIRL}">Girl</td>
+                <td th:if="${regForm.gender}==${T(cz.czechitas.java2webapps.ukol5.controller.Gender).BOY}">Boy</td>
+            </tr>
+            <tr>
+                <td><i class="fas fa-check"></i> Selected camp date:</td>
+                <td th:if="${regForm.turnus}==1">June 3rd - July 17th</td>
+                <td th:if="${regForm.turnus}==2">July 17th - July 31st</td>
+                <td th:if="${regForm.turnus}==3">July 31st - August 14th</td>
+                <td th:if="${regForm.turnus}==4">August 14th - August 28th</td>
+            </tr>
+            <tr>
+                <td><i class="fas fa-check"></i> Preferred sports:</td>
+                <td th:text="${regForm.favSports}"></td>
+            </tr>
+            <tr>
+                <td><i class="fas fa-check"></i> Parents' email:</td>
+                <td th:text="${regForm.email}"></td>
+            </tr>
+            <tr>
+                <td><i class="fas fa-check"></i> Parents' phone no:</td>
+                <td th:text="${regForm.telefon}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

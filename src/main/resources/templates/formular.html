@@ -2,11 +2,143 @@
 <html lang="cs" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Registrace na letní dětský tábor</title>
+    <title>Summer Camp Registration</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="/images/favicon.png">
+    <script src="https://kit.fontawesome.com/5bf75b0391.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
-    TODO
+<div class="registrace">
+    <form th:action="@{/}" method="post">
+        <h1>Best Summer Camp 2021</h1>
+        <h2> Registration </h2>
+        <div class="formular">
+            <h3> Section 1: Participant's detail</h3>
+            <div>
+                <label for="jmeno"> First Name</label>
+                <input id="jmeno" name="firstName" type="text" th:field="${regForm.firstName}"/>
+            </div>
+            <div class="error" th:if="${#fields.hasErrors('regForm.firstName')}" th:errors="${regForm.firstName}"></div>
+            <div>
+                <label for="prijmeni"> Last Name</label>
+                <input id="prijmeni" type="text" name="lastNname" th:field="${regForm.lastName}"/>
+            </div>
+            <div class="error" th:if="${#fields.hasErrors('regForm.lastName')}" th:errors="${regForm.lastName}"></div>
+            <table class="sport">
+                <tbody>
+                <tr>
+                    <td>Gender:
+                    </td>
+                    <td>
+                        <label for="girl">Girl</label>
+                        <input id="girl" name="gender" type="radio" th:field="${regForm.gender}" value="GIRL">
+                    </td>
+                    <td>
+                        <label for="boy">Boy</label>
+                        <input id="boy" name="gender" type="radio" th:field="${regForm.gender}" value="BOY">
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="error" th:if="${#fields.hasErrors('regForm.gender')}" th:errors="${regForm.gender}"></div>
+
+
+            <div>
+                <label for="narozeniny"> Date of Birth</label>
+                <input id="narozeniny" name="dateOfBirth" type="date" th:field="${regForm.dateOfBirth}">
+            </div>
+            <div class="error" th:if="${#fields.hasErrors('regForm.dateOfBirth')}"
+                 th:errors="${regForm.dateOfBirth}"></div>
+
+            <h3> Section 2: Camp Preferences</h3>
+            <div class="formular">
+                <label for="termin"> Camp date</label>
+                <select id="termin" name="turnus" th:field="${regForm.turnus}">
+                    <option value=""></option>
+                    <option value="1">June 3rd - July 17th</option>
+                    <option value="2">July 17th - July 31st</option>
+                    <option value="3">July 31st - August 14th</option>
+                    <option value="4">August 14th - August 28th</option>
+                </select>
+            </div>
+            <div class="error" th:if="${#fields.hasErrors('regForm.turnus')}" th:errors="${regForm.turnus}"></div>
+            <span> Preferred Sports*:</span>
+            <table class="sport">
+                <tbody>
+                <tr>
+                    <td>
+                        <input type="checkbox" value="SWIMMING" th:field="${regForm.favSports}">
+                        <label th:for="${#ids.prev('favSports')}"><i class="fas fa-swimmer"></i> Swimming</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" value="RUNNING" th:field="${regForm.favSports}">
+                        <label th:for="${#ids.prev('favSports')}"><i class="fas fa-running"></i> Running</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" value="HIKING" th:field="${regForm.favSports}">
+                        <label th:for="${#ids.prev('favSports')}"><i class="fas fa-hiking"></i> Hiking</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" value="BASKETBALL" th:field="${regForm.favSports}">
+                        <label th:for="${#ids.prev('favSports')}"><i class="fas fa-basketball-ball"></i>
+                            Basketball</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" value="VOLLEYBALL" th:field="${regForm.favSports}">
+                        <label th:for="${#ids.prev('favSports')}"><i class="fas fa-volleyball-ball"></i>
+                            Volleyball</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" value="QUIDDITCH" th:field="${regForm.favSports}">
+                        <label th:for="${#ids.prev('favSports')}"><i class="fas fa-quidditch"></i> Quidditch</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+                        <input type="checkbox" value="HORSE_RIDING" th:field="${regForm.favSports}">
+                        <label th:for="${#ids.prev('favSports')}"><i class="fas fa-horse"></i> Horse Riding</label>
+                    </td>
+
+                    <td>
+                        <input type="checkbox" value="CYCLING" th:field="${regForm.favSports}">
+                        <label th:for="${#ids.prev('favSports')}"><i class="fas fa-biking"></i> Cycling</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" value="FOOTBALL" th:field="${regForm.favSports}">
+                        <label th:for="${#ids.prev('favSports')}"><i class="fas fa-futbol"></i> Football</label>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div>
+                <div class="comment"> *Select at least TWO sports for the participant.</div>
+                <div class="error" th:if="${#fields.hasErrors('regForm.favSports')}"
+                     th:errors="${regForm.favSports}"></div>
+            </div>
+            <div>
+                <H3> Parents' contact information</H3>
+                <label for="mail"> <i class="fas fa-at"></i></label>
+                <input id="mail" name="email" type="text" th:field="${regForm.email}">
+            </div>
+            <div>
+                <label for="tel"> <i class="fas fa-phone"></i></label>
+                <input id="tel" name="telefon" type="text" th:field="${regForm.telefon}">
+            </div>
+            <div class="button">
+                <button type="submit"><i class="far fa-save"></i> Submit Registration</button>
+            </div>
+        </div>
+    </form>
+
+</div>
 </body>
 </html>
