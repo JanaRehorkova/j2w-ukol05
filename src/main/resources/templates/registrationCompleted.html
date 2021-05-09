@@ -36,7 +36,17 @@
             </tr>
             <tr>
                 <td><i class="fas fa-check"></i> Preferred sports:</td>
-                <td th:text="${regForm.favSports}"></td>
+                <td><ul class="selectedSports">
+                    <li th:if="${regForm.favSports.contains(T(cz.czechitas.java2webapps.ukol5.controller.Sport).SWIMMING)}">Swimming</li>
+                    <li th:if="${regForm.favSports.contains(T(cz.czechitas.java2webapps.ukol5.controller.Sport).RUNNING)}">Running</li>
+                    <li th:if="${regForm.favSports.contains(T(cz.czechitas.java2webapps.ukol5.controller.Sport).HIKING)}">Hiking</li>
+                    <li th:if="${regForm.favSports.contains(T(cz.czechitas.java2webapps.ukol5.controller.Sport).BASKETBALL)}">Basketball</li>
+                    <li th:if="${regForm.favSports.contains(T(cz.czechitas.java2webapps.ukol5.controller.Sport).VOLLEYBALL)}">Volleyball</li>
+                    <li th:if="${regForm.favSports.contains(T(cz.czechitas.java2webapps.ukol5.controller.Sport).QUIDDITCH)}">Quidditch</li>
+                    <li th:if="${regForm.favSports.contains(T(cz.czechitas.java2webapps.ukol5.controller.Sport).HORSE_RIDING)}">Horse riding</li>
+                    <li th:if="${regForm.favSports.contains(T(cz.czechitas.java2webapps.ukol5.controller.Sport).CYCLING)}">Cycling</li>
+                    <li th:if="${regForm.favSports.contains(T(cz.czechitas.java2webapps.ukol5.controller.Sport).FOOTBALL)}">Football</li>
+                </ul></td>
             </tr>
             <tr>
                 <td><i class="fas fa-check"></i> Parents' email:</td>

@@ -63,7 +63,7 @@
                 </select>
             </div>
             <div class="error" th:if="${#fields.hasErrors('regForm.turnus')}" th:errors="${regForm.turnus}"></div>
-            <span> Preferred Sports*:</span>
+            <span>  Preferred Sports*:</span>
             <table class="sport">
                 <tbody>
                 <tr>
@@ -102,7 +102,7 @@
                     <td>
 
                         <input type="checkbox" value="HORSE_RIDING" th:field="${regForm.favSports}">
-                        <label th:for="${#ids.prev('favSports')}"><i class="fas fa-horse"></i> Horse Riding</label>
+                        <label th:for="${#ids.prev('favSports')}"><i class="fas fa-horse"></i> Horse riding</label>
                     </td>
 
                     <td>
@@ -133,9 +133,9 @@
                 <label for="tel"> <i class="fas fa-phone"></i></label>
                 <input id="tel" name="telefon" type="text" th:field="${regForm.telefon}">
             </div>
-            <div class="button">
-                <button type="submit"><i class="far fa-save"></i> Submit Registration</button>
-            </div>
+        </div>
+        <div class="button">
+            <button type="submit"><i class="far fa-save"></i> Submit Registration</button>
         </div>
     </form>
 

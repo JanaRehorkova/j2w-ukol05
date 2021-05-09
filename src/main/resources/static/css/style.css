@@ -7,46 +7,55 @@
 body {
     text-align: center;
     font-family: "Droid Sans";
-}
-h1 {
-    text-align: center;
-    font-family: "Droid Sans";
-}
-h2 {
+    align-items: center;
     position: center;
-    font-family: "Droid Sans";
+    justify-content: center;
+    color: darkgreen;
+
 }
-.registrace{
+
+.registrace {
+    margin: auto;
     border-width: 3px;
     border-color: darkslategrey;
     border-style: solid;
     max-width: 500px;
     background-color: blanchedalmond;
+    position: center;
 
 }
-.formular{
+
+.formular {
     max-width: 500px;
     position: center;
     text-align: left;
     margin-top: 2px;
-    object-position: center;
+    margin-left: 2px;
 
 
 }
+
 .comment {
-    color: blue;
+    color: darkcyan;
     font-size: small;
 }
 
-.sport{
+.sport {
     table-layout: auto;
     text-align: left;
     position: center;
+    top: 0;
 }
 
-.button{
-    position:center;
+.button {
+    position: center;
     margin: 5px;
     align-items: center;
     alignment: center;
+
+}
+
+.selectedSports {
+    list-style: none;
+    margin-left: unset;
 }
